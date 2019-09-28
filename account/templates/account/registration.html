@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %} Registration {% endblock %}
+
+{% block content %}
+
+<div class = "registration-form">
+	<form action = "{% url 'registration' %}" method="POST">
+		<input type="text" name="username" placeholder="Enter username" required><br>
+		<input type="text" name="first_name" placeholder="Enter First Name" required><br>
+		<input type="text" name="last_name" placeholder="Enter Last Name"><br>
+		<input type="date" name="date_of_birth" placeholder="Enter Date of Birth" ><br>
+		<input type="text" name="job_title" placeholder="Enter job title (optional)"><br>
+		<input type="text" name="department" placeholder="Enter Department (optional)"><br>
+		<input type="email" name="email" placeholder="Email" required><br>
+		<input type="text" name="contact" placeholder="Enter Mobile Number" length="12"><br>
+		<input type="password" name="password1" placeholder="Enter a strong pasword"><br>
+		<input type="password" name="password2" placeholder="re-enter your pasword"><br>
+
+
+
+
+		{% csrf_token %}
+
+		<input type="submit" name="" value="Register">
+	</form>
+
+
+</div>
+
+{% endblock %}

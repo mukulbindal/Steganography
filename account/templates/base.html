@@ -1,0 +1,77 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel = "stylesheet" type = "text/css" href = "{% static 'css/images/mycss.css' %}">
+
+<title>{% block title %}{% endblock %}
+	</title>
+	
+</head>
+<body>
+<div class=" talk">
+	<img src="{% static 'css/images/talkchat.jpg' %}" style="width:60px;height:60px; border-radius:50%">
+</div>
+<div class="b">
+	<h1>talkchat</h1>
+</div>
+<div class="c">
+	<a href="abc.html" style="hover:blue;">Why talkchat?</a>
+</div>
+<div class="d">
+	<a href="vzs.html">About Us</a>
+</div>
+{% if request.session.user %}
+<div class="e">
+
+	<a href="{% url 'friends' %}">Friends</a>
+</div>
+<div class="f">
+	<a href="{% url 'follow' %}">Follow</a>
+</div>
+Hello {{ request.session.user}},
+<a href="{% url 'logout' %}" class = "g">Logout</a>
+{% else %}
+<div class="g">
+	<a href="{% url 'login' %}" >Sign in</a>
+</div>
+
+{% endif %}
+<div class="dc">
+	<a href="dsf.html"><font color="white">GET STARTED</font></a>
+</div>
+<br>
+<hr>
+<div class="h">
+<font size="30"><b>Messaging in different way by talkchat</b></font>
+</div>
+<br>
+<div class="hh">
+<font size="5">talkchat gives you a chance to improve your behaviour over a chat</font>
+</div>
+<div class="container h-100">
+	<div class="gg">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Search Friends....">
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div></div>
+      </div>
+</div>
+<div class="content">
+	{% block content %}
+	{% endblock %}
+</div>
+<div class="im1"><img src="{% static 'css/images/im1.jpg' %}" style="width:30px;height:30px; border-radius:50%"></div>
+<div class="im2"><img src="{% static 'css/images/im2.jpg' %}" style="width:30px;height:30px; border-radius:50%"></div>
+<div class="im3"><img src="{% static 'css/images/im3.png' %}" style="width:30px;height:30px; border-radius:50%"></div>
+<div class="im4"><img src="{% static 'css/images/im4.jpg' %}" style="width:30px;height:30px; border-radius:50%"></div>
+<div class="im5"><img src="{% static 'css/images/im5.png' %}" style="width:30px;height:30px; border-radius:50%"></div>
+<div class="im6"><img src="{% static 'css/images/im6.jpg' %}" style="width:30px;height:30px; border-radius:50%"></div>
+<div class="im7"><img src="{% static 'css/images/im7.jpg' %}" style="width:30px;height:30px; border-radius:50%"></div>
+<div class="im9"><img src="{% static 'css/images/im9.jpg' %}" style="width:30px;height:30px; border-radius:50%"></div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Log-in{% endblock %}
+
+{% block content %}
+
+<h1>Log-in</h1>
+{% if notvalid %}
+<p> Your Username and password didn't match. Please try again.
+</p>
+
+{% else %}
+	{% if loggedout %}
+	<p>Logged out successfully</p>
+	{% elif registered %}
+	<p>Registered Successfully!!</p>
+	{% endif %}
+	<p> Please Use the following form to login</p>
+	
+{% endif %}
+<div class="login-form">
+	<form action = "{% url 'login' %}" method = "post">
+		
+		UserName <input type="text" name="username" required><br>
+		Password <input type="password" name="password" required><br>
+		{% csrf_token %}
+		<input type="hidden" name="next" value={{next}} />
+		<p><input type="submit" value = "Login" name="">
+		New User? <a href="{% url 'registration' %}">Register Here</a></p>
+
+	</form>
+</div>
+
+
+{% endblock %}
